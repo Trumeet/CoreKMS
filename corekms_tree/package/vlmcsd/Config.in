@@ -1,0 +1,4 @@
+config BR2_PACKAGE_VLMCSD
+	bool "vlmcsd"
+	help
+	  Build the vlmcsd KMS emulator.

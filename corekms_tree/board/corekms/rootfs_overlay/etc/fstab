@@ -1,0 +1,13 @@
+# The default configuration uses `defaults` in options for devpts and sysfs,
+# which causes problems mounting.
+# Simply removing the options, dump and pass does not work, since BusyBox's mount(1)
+# seems to be ignoring these lines.
+# rw is working well.
+# <file system>	<mount pt>	<type>	<options>	<dump>	<pass>
+/dev/root	/		ext2	rw,noauto	0	1
+proc		/proc		proc	defaults	0	0
+devpts		/dev/pts	devpts	rw		0	0
+tmpfs		/dev/shm	tmpfs	mode=0777	0	0
+tmpfs		/tmp		tmpfs	mode=1777	0	0
+tmpfs		/run		tmpfs	mode=0755,nosuid,nodev	0	0
+sysfs		/sys		sysfs	rw		0	0

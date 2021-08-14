@@ -1,0 +1,18 @@
+#!/bin/sh
+# The system state page.
+while true
+do
+	clear
+	printf "Welcome to CoreKMS!\t"
+	uptime
+	free -h
+	if pgrep "vlmcsd" > /dev/null ; then
+		echo "VLMCSD is running."
+	else
+		echo "VLMCSD is not running."
+	fi
+	echo "IP Addresses:"
+	ip a
+	echo "Press Enter to refresh."
+	read
+done
